@@ -3,19 +3,24 @@ import requests
 from datetime import datetime, timedelta
 from dotenv import dotenv_values
 
+# constants
 config = dotenv_values()
 WEATHER_KEY = config['WEATHER_KEY']
 MAP_KEY = config['MAP_KEY']
-
 URL = 'https://api.openweathermap.org/data/2.5/weather'
 COOKIE_CITIES = 'cities'
 
+# this function retrieves weather data and a map for the requested city.
+# input:  city (string)
+# output: weather object
 def get_weather_data(city):
 
     PARAMS = {'q':city ,
             'appid': WEATHER_KEY,
             'units': 'imperial'}
 
+    # if the city is an integer, we are parsing a list
+    # in this case, we need to change the param to id: instead of q:
     try:
         int(city)
         PARAMS = {'id':city ,
@@ -27,7 +32,10 @@ def get_weather_data(city):
 
     # get weather data
     req = requests.get(url=URL, params=PARAMS)
+    # if weather is successful
     if req.status_code ==  200:
+
+        # get the json, and retrieve the data.
         weather_data = req.json()
 
         current_city_name = weather_data['name']
@@ -69,7 +77,7 @@ def get_weather_data(city):
     else:
         return
 
-# Create your views here.
+# this function gets the value from a POST if available, gathers weather and location data, and renders index.html
 def index(request):
 
     weather_object = {}
@@ -78,13 +86,14 @@ def index(request):
     if 'city' in request.POST:
         city = request.POST['city']
         if city != '' :
+            # get weather data
             weather_object = get_weather_data(city)
    
-    
     # call the render
     return render(request, 'weather/index.html', weather_object )
 
-
+# this function retrieves the current cookie and uses it to generate weather data from the location list
+# it then renders the city_list.html page.
 def list(request):
 
     # get cookie for city ids
@@ -96,11 +105,14 @@ def list(request):
     #create object
     weather_object_list = []
 
+    #walk the city list
     for city in cities:
+        # get weather data
         weather_object_list.append(get_weather_data(city)) 
 
     context = {
         'cities': weather_object_list
     }
     
+    #call the render
     return render(request, 'weather/city_list.html', context )
