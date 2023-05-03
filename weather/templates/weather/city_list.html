@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<script src="{% static 'remove_cookie.js' %} "></script>
+<title>Weather Status</title>
+<div class="row">
+    <div class="col-lg-6 col-xs-6">
+        <h1 class='text-center header'>
+            Weather around the World
+        </h1>
+    </div>
+    <div class="col-lg-6 col-xs-6">
+      <div class="col-lg-2 col-lg-push-10 col-md-2 col-md-push-0 col-sm-2 col-sm-push-0 col-xs-2 col-xs-push-0">
+        <div class="pull-right">
+            <a class="btn btn-warning h-100" href="index.html">Add more cities</a>
+        </div>
+      </div>
+    </div>
+</div>
+                    
+<hr>
+<div class="card-columns">
+
+    {% for city in cities %}
+
+        <div class="card">            
+            <div class="card-body bg-secondary">
+                <h2 class="text-center card-subtitle">{{city.current_time}}</h2>
+                <h1 class="text-center card-title">{{city.current_city_name}}</h1>
+                <img src="{{city.current_icon_url}}" alt="{{city.current_description}}">
+                <h2 hidden id="text-center cityId">{{city.current_city_id}}</h2>
+                <h2 class="text-center card-text">{{city.current_description}}</h2>
+                <h2 class="text-center card-text">{{city.current_temp}}°F</h2>
+                <h2 class="text-center card-text">{{city.current_wind_speed}} MPH</h2>
+                <button class='btn btn-primary' id="removeButton" onclick="removeCookie({{city.current_city_id}})">Remove</button>    
+                
+            </div>
+            
+
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
