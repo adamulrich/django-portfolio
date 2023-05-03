@@ -21,7 +21,7 @@ You can start the web server by using the command:
 
 I built this app to learn django, and to learn bootstrap 4 styling.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/ghFcAGNvzbw)
 
 # Web Pages
 
