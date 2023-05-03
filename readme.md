@@ -1,10 +1,21 @@
 # Overview
 
-This project is the implementation of a weather app for various locations.
+This django app retrieves and displays weather, map and time data for user selected locations.
 
-Before running this code, you need to install django:
+# Prerequisities
+Before running this code, you need to install django and python-dotenv
 >`pip install django`
 
+>`pip install python-dotenv`
+
+You will also need to provide keys - WEATHER_KEY and MAP_KEY (OpenWeatherAPI KEY and Bing Maps key) in a 
+.env file in the weather folder.
+<code><br><br>
+WEATHER_KEY=<br>
+MAP_KEY=<br>
+</code>
+
+# Startup
 You can start the web server by using the command:
 >`python3 manage.py runserver`
 
@@ -20,7 +31,7 @@ city_list.html - this page pulls from local storage all the locations that you h
 
 # Development Environment
 
-I used VS Code, Django 3, Python 3.9, Bootstrap 4, Bing Maps, and OpenWeatherAPI to build this project.
+To build this project, I used VS Code with Python 3.9.13. Libraries included are Bootstrap 4 and Python-Dotenv. Web Services used are Bing Maps and OpenWeatherAPI.
 
 # Useful Websites
 
@@ -30,7 +41,7 @@ I used VS Code, Django 3, Python 3.9, Bootstrap 4, Bing Maps, and OpenWeatherAPI
 * [RealPython Django Tutorial](https://realpython.com/get-started-with-django-1/)
 * [OpenWeatherAPI](https://openweathermap.org/api)
 * [Bing Maps](https://learn.microsoft.com/en-us/bingmaps/)
-
+* [python-dotenv](https://pypi.org/project/python-dotenv/)
 
 # Future Work
 

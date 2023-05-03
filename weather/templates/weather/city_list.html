@@ -35,12 +35,11 @@
                     <h2 class="text-center card-text">{{city.current_temp}}°F</h2>
                     <h2 class="text-center card-text">{{city.current_wind_speed}} MPH</h2>
                     <button class='btn btn-warning' id="removeButton" onclick="removeCookie({{city.current_city_id}})">Remove</button>    
-                    
                 </div>
-                
-
             </div>
         {% endfor %}
+
     </div>
+    {% include 'weather/footer.html' %}
 </div>
 {% endblock %}

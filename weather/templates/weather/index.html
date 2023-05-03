@@ -34,9 +34,10 @@
             <h2 id='windspeed' class="card-text text-center">wind: {{current_wind_speed}} MPH</h2>
         </div>
         <button class='btn btn-primary' id="addButton">Add to Weather Status Page</button>
-        <a class="btn btn-warning" href="city_list.html">Weather Status Page</a>    
-
+        <a class="btn btn-warning" href="city_list.html">Weather Status Page</a>   
+        {% include 'weather/footer.html' %}
     </div>
+    
 </div>
 <script src="{% static 'cookie.js' %} " defer></script>
 {% endblock %}

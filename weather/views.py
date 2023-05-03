@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from dotenv import dotenv_values
 
 config = dotenv_values()
-API_KEY = config['API_KEY']
+WEATHER_KEY = config['WEATHER_KEY']
 MAP_KEY = config['MAP_KEY']
 
 URL = 'https://api.openweathermap.org/data/2.5/weather'
@@ -13,13 +13,13 @@ COOKIE_CITIES = 'cities'
 def get_weather_data(city):
 
     PARAMS = {'q':city ,
-            'appid': API_KEY,
+            'appid': WEATHER_KEY,
             'units': 'imperial'}
 
     try:
         int(city)
         PARAMS = {'id':city ,
-            'appid': API_KEY,
+            'appid': WEATHER_KEY,
             'cnt': 1,
             'units': 'imperial'}
     except:
