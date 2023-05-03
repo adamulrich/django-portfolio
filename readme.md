@@ -2,6 +2,9 @@
 
 This project is the implementation of a weather app for various locations.
 
+Before running this code, you need to install django:
+>`pip install django`
+
 You can start the web server by using the command:
 >`python3 manage.py runserver`
 
