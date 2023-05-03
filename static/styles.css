@@ -2,3 +2,8 @@ body {
     background-color: purple;
     color: white;
 }
+
+.map {
+    min-height: 300px;
+    min-width: 510px;
+}

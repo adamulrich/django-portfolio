@@ -53,7 +53,7 @@ def get_weather_data(city):
         print(current_time)
         key = 'Am27Bsy1tM3G4a6CQZ10Sva7FaKgzsg527w_RB1M0TtB288Fnc99KfCmAm3TAFr0'
         current_icon_url = f'https://openweathermap.org/img/wn/{current_icon}@4x.png'
-        bing_map =  f'https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/{lat},{lon}/8?pushpin={lat},{lon};37&mapSize=300,300&key=Am27Bsy1tM3G4a6CQZ10Sva7FaKgzsg527w_RB1M0TtB288Fnc99KfCmAm3TAFr0'
+        bing_map =  f'https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/{lat},{lon}/8?pushpin={lat},{lon};37&mapSize=515,300&key=Am27Bsy1tM3G4a6CQZ10Sva7FaKgzsg527w_RB1M0TtB288Fnc99KfCmAm3TAFr0'
 
         # set up the object to pass it back to the render
         weather_object = {'city': current_city_name, 
