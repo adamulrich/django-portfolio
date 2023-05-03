@@ -9,26 +9,28 @@
     <div class="card bg-secondary">
     </div>
     <div class="card bg-secondary">           
-        <h1 class='text-center header'>
+        <h1 class='text-center header px-5'>
             Weather around the World
         </h1>
         <hr>
      
         <form method="POST">
             {% csrf_token %}
-            <input class='text-center' id='city_select' type="text" placeholder="City Name" name='city'/>
-            <button class='btn btn-primary text-center' type='submit'>Select</button>
+            <div class="container">
+                <input class='form-control' id='city_select' type="text" placeholder="City Name" name='city'/>
+                <button class='form-control btn btn-primary text-center' type='submit'>Select</button>
+            </div>
         </form>
         <div class="card-body">
             <iframe name='my_frame' id='map' class='card-img-top' height='304' width='304' id='encoder_iframe' src="{{bing_map}}"></iframe>
             <!-- <h2 class="card-subtitle mb-2 text-muted">{{date}}</h2> -->
-            <h1 class="card-title">{{current_city_name}}</h1>
-            <h1 class="card-text" >time: {{current_time}}</h1>
-            <img src="{{current_icon_url}}" alt="{{current_description}}">
+            <h1 class="card-title text-center">{{current_city_name}}</h1>
+            <h1 class="card-text text-center" >{{current_time}}</h1>
+            <img class='img-responsive center-block d-block mx-auto' src="{{current_icon_url}}" alt="{{current_description}}">
             <h2 hidden id="cityId">{{current_city_id}}</h2>
-            <h2 class="card-text">{{current_description}}</h2>
-            <h2 id='temp' class="card-text">{{current_temp}}°F</h2>
-            <h2 id='windspeed' class="card-text">{{current_wind_speed}} MPH</h2>
+            <h2 class="card-text text-center">{{current_description}}</h2>
+            <h2 id='temp' class="card-text text-center">temp: {{current_temp}}°F</h2>
+            <h2 id='windspeed' class="card-text text-center">wind: {{current_wind_speed}} MPH</h2>
         </div>
         <button class='btn btn-primary' id="addButton">Add to Weather Status Page</button>
         <a class="btn btn-warning" href="city_list.html">Weather Status Page</a>    
