@@ -43,8 +43,11 @@ def get_weather_data(city):
         
         current_time = (d + timedelta(seconds=weather_data['timezone'])).strftime('%a %b %d, %Y %H:%M')
         
+        map_height=300
+        map_width=700
+        map_zoom=9
         current_icon_url = f'https://openweathermap.org/img/wn/{current_icon}@4x.png'
-        bing_map =  f'https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/{lat},{lon}/8?pushpin={lat},{lon};37&mapSize=505,300&key={MAP_KEY}'
+        bing_map =  f'https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/{lat},{lon}/{map_zoom}?pushpin={lat},{lon};37&mapSize={map_width},{map_height}&key={MAP_KEY}'
 
         # set up the object to pass it back to the render
         weather_object = {'city': current_city_name, 
