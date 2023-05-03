@@ -1,9 +1,16 @@
-body {
-    background-color: purple;
-    color: white;
-}
 
-.map {
-    min-height: 300px;
-    min-width: 510px;
+@media (max-width: 800px) {
+    .card-columns.custom-columns {
+        column-count: 1;
+    }
+}
+@media (min-width: 801px) {
+    .card-columns.custom-columns {
+        column-count: 2;
+    }
+}
+@media (min-width: 1200px) {
+    .card-columns.custom-columns {
+        column-count: 3;
+    }
 }

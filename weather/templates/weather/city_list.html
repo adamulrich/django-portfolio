@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block page_content %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 <script src="{% static 'remove_cookie.js' %} "></script>
 <title>Weather Status</title>
 <div class="container px-5">
@@ -10,7 +11,7 @@
         <h1 class='text-center header'>
             Weather around the World
         </h1>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class='col-12 center-block'>
@@ -20,7 +21,8 @@
     
                         
     <hr>
-    <div class="card-columns">
+    
+    <div class="card-columns custom-columns">
 
         {% for city in cities %}
 
@@ -28,7 +30,7 @@
                 <div class="card-body bg-secondary">
                     <h2 class="text-center card-subtitle">{{city.current_time}}</h2>
                     <h1 class="text-center card-title">{{city.current_city_name}}</h1>
-                    <img src="{{city.current_icon_url}}" alt="{{city.current_description}}">
+                    <img class='img-responsive center-block d-block mx-auto' src="{{city.current_icon_url}}" alt="{{city.current_description}}">
                     <h2 hidden id="text-center cityId">{{city.current_city_id}}</h2>
                     <h2 class="text-center card-text">{{city.current_description}}</h2>
                     <h2 class="text-center card-text">{{city.current_temp}}°F</h2>
